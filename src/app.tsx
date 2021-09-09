@@ -36,9 +36,19 @@ class App extends React.Component<{}, { value: string, name: string, submitted: 
 				<form onSubmit={this.handleSubmit}>
 					<label>
 						Your name: ​
-						<input type="text" name="name" value={this.state.value} onChange={this.handleChange} />
+						<input
+							type="text"
+							name="name"
+							value={this.state.value}
+							onChange={this.handleChange}
+							className="bg-gray-700"
+						/>
 					</label>
-					<input type="submit" value="Submit"/>
+					<input
+						type="submit"
+						value="Submit"
+						className="bg-gray-500 hover:bg-gray-600"
+					/>
 				</form>
 				<Greeting name={this.state.submitted ? this.state.name : ''} />
 			</div>
@@ -46,4 +56,4 @@ class App extends React.Component<{}, { value: string, name: string, submitted: 
 	}
 }
 
-ReactDOM.render(<App />, document.getElementById('troyDoxedLol'));
+ReactDOM.render(<App />, document.getElementById('root'));

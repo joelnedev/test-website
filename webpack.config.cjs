@@ -2,23 +2,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
+  mode: process.env.NODE_ENV === 'PRODUCTION' ? 'production' : 'development',
   entry: './src/app.tsx',
   devtool: 'cheap-module-source-map',
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist')
-    },
-    client: {
-      progress: true
-    },
-    compress: true,
-    port: 5000
+  watchOptions: {
+    ignored: /node_modules/
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        exclude: /node_modules/,
+        include: path.resolve(__dirname, 'src'),
         use: {
           loader: 'babel-loader',
           options: {
@@ -56,13 +50,11 @@ module.exports = {
         use: 'html-loader'
       },
       {
-        test: /\.css$/,
-        use: 'style-loader'
-      }
+        test: /\.css$/i,
+        include: path.resolve(__dirname, 'src'),
+        use: 'postcss-loader',
+      },
     ]
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js']
   },
   output: {
     filename: 'bundle.js',
