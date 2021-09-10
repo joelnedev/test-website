@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "rimraf dist && webpack -c ./webpack.config.cjs",
-    "dev": "rimraf dist && webpack s -c ./webpack.config.cjs",
+    "dev": "webpack s -c ./webpack.config.cjs",
     "static": "npx serve dist"
   },
   "repository": {

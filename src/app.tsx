@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 export const Greeting = (props: { name: string }) => (
 	<div>
-		<h1>Hi{props.name !== '' ? `, ${props.name}! I know your address.` : '!'}</h1>
+		<h1 className='text-center text-3xl' >Hi{props.name !== '' ? `, ${props.name}! I know your address.` : '!'}</h1>
 	</div>
 );
 
@@ -33,21 +33,22 @@ class App extends React.Component<{}, { value: string, name: string, submitted: 
 	override render() {
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit}>
-					<label>
+				<form style={{marginTop: '20px'}} className='text-center' onSubmit={this.handleSubmit}>
+					<label className='text-2xl' >
 						Your name: ​
 						<input
-							type="text"
-							name="name"
+							type='text'
+							name='name'
 							value={this.state.value}
 							onChange={this.handleChange}
-							className="bg-gray-700"
+							className='bg-gray-700 text-center text-xl'
 						/>
 					</label>
 					<input
-						type="submit"
-						value="Submit"
-						className="bg-gray-500 hover:bg-gray-600"
+						type='submit'
+						value='Submit'
+						className='bg-gray-500 hover:bg-gray-600 text-center text-xl'
+						style={{ marginLeft: '5px' }}
 					/>
 				</form>
 				<Greeting name={this.state.submitted ? this.state.name : ''} />
