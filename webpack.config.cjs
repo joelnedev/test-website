@@ -1,5 +1,6 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV === 'PRODUCTION' ? 'production' : 'development',
@@ -7,6 +8,13 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   watchOptions: {
     ignored: /node_modules/
+  },
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'dist')
+    },
+    compress: true,
+    port: 5000
   },
   module: {
     rules: [
@@ -46,14 +54,15 @@ module.exports = {
         }
       },
       {
-        test: /\.html$/,
-        use: 'html-loader'
+        test: /\.css$/,
+        include: path.resolve(__dirname, 'src'),
+        use: [ 'postcss-loader' ]
       },
       {
-        test: /\.css$/i,
+        test: /\.html$/,
         include: path.resolve(__dirname, 'src'),
-        use: 'postcss-loader',
-      },
+        use: 'html-loader'
+      }
     ]
   },
   output: {
