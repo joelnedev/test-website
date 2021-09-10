@@ -42,6 +42,7 @@ class App extends React.Component<{}, { value: string, name: string, submitted: 
 							value={this.state.value}
 							onChange={this.handleChange}
 							className='bg-gray-700 text-center text-xl'
+							style={{ padding: '2px' }}
 						/>
 					</label>
 					<input
