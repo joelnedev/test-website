@@ -48,7 +48,7 @@ class App extends React.Component<{}, { value: string, name: string, submitted: 
 						type='submit'
 						value='Submit'
 						className='bg-gray-500 hover:bg-gray-600 text-center text-xl'
-						style={{ marginLeft: '5px' }}
+						style={{ marginLeft: '5px', padding: '2px' }}
 					/>
 				</form>
 				<Greeting name={this.state.submitted ? this.state.name : ''} />
