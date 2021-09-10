@@ -61,7 +61,19 @@ module.exports = {
         test: /\.html$/,
         include: path.resolve(__dirname, 'src'),
         use: 'html-loader'
-      }
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              limit: 8192,
+            }
+          },
+        ],
+        type: 'javascript/auto'
+      },
     ]
   },
   output: {

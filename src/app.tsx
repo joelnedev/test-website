@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export const Greeting = (props: { name: string }) => (
-	<div>
-		<h1 className='text-center text-3xl' >Hi{props.name !== '' ? `, ${props.name}! I know your address.` : '!'}</h1>
+	<div style={{marginTop: '20px'}} >
+		<h1 className='text-center text-4xl' >Hi{props.name !== '' ? `, ${props.name}! I know your address.` : '!'}</h1>
 	</div>
 );
 
@@ -53,6 +53,7 @@ class App extends React.Component<{}, { value: string, name: string, submitted: 
 					/>
 				</form>
 				<Greeting name={this.state.submitted ? this.state.name : ''} />
+				{ this.state.submitted ? <img src="https://media.discordapp.net/attachments/831167697302716446/885934732347576360/swag-krabs-real.gif" alt='swag krabs real' style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', marginTop: '50px'}} width={'25%'} /> : ''}
 			</div>
 		);
 	}
