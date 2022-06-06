@@ -3,10 +3,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV === 'PRODUCTION' ? 'production' : 'development',
-  entry: './src/app.tsx',
+  entry: './src/App.tsx',
   devtool: 'cheap-module-source-map',
   watchOptions: {
     ignored: /node_modules/
+  },
+  resolve: {
+    extensions: [
+      '.tsx',
+      '.ts',
+      '.css',
+      '.html',
+      '.js',
+      '.wasm'
+    ]
   },
   devServer: {
     static: {
